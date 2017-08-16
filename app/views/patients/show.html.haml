@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Apellido paterno:
+  = @patient.apellido_paterno
+%p
+  %b Apellido materno:
+  = @patient.apellido_materno
+%p
+  %b Nombre:
+  = @patient.nombre
+%p
+  %b Rut:
+  = @patient.rut
+%p
+  %b Fecha nacimiento:
+  = @patient.fecha_nacimiento
+%p
+  %b Telefono:
+  = @patient.telefono
+%p
+  %b Celular:
+  = @patient.celular
+%p
+  %b Direccion:
+  = @patient.direccion
+%p
+  %b Ocupacion:
+  = @patient.ocupacion
+%p
+  %b Derivado:
+  = @patient.derivado
+
+= link_to 'Edit', edit_patient_path(@patient)
+\|
+= link_to 'Back', patients_path
