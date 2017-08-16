@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @stage.nombre
+%p
+  %b Diagnosis:
+  = @stage.diagnosis
+
+= link_to 'Edit', edit_stage_path(@stage)
+\|
+= link_to 'Back', stages_path
