@@ -1,11 +1,11 @@
 %p#notice= notice
 
 %p
-  %b Diagnostico y tratamiento:
+  %b Diagnóstico y tratamiento:
   = @diagnosis.diagnostico_y_tratamiento
 %p
-  %b Patient:
-  = @diagnosis.patient
+  %b Paciente:
+  = @diagnosis.patient.show_nombre
 
 = link_to 'Edit', edit_patient_diagnosis_path(@patient, @diagnosis)
 \|

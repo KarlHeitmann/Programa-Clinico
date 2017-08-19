@@ -30,9 +30,10 @@
 %p
   %b Derivado:
   = @patient.derivado
-
+= link_to 'Diagnósticos', patient_diagnoses_path(@patient)
+\|
 = link_to 'New Diagnosis', new_patient_diagnosis_path(@patient)
-
+\|
 = link_to 'Edit', edit_patient_path(@patient)
 \|
 = link_to 'Back', patients_path

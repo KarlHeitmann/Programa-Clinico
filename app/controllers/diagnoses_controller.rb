@@ -17,7 +17,7 @@ class DiagnosesController < ApplicationController
   # GET /diagnoses/new
   def new
     @patient = Patient.find params[:patient_id]
-    @diagnosis = @patient.diagnoses.build
+    @diagnosis = @patient.diagnoses.build(attributes={diagnostico_y_tratamiento: TEXTO_ANAMNESIS})
   end
 
   # GET /diagnoses/1/edit

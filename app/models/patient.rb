@@ -22,5 +22,8 @@ class Patient < ApplicationRecord
     :telefono, :celular, :direccion, :ocupacion, :derivado, presence: true
 
   has_many :diagnoses
+  def show_nombre
+    return "#{nombre} #{apellido_paterno} #{apellido_materno}"
+  end
 end
 

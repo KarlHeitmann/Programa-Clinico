@@ -20,7 +20,7 @@
     = f.text_field :rut
   .field
     = f.label :fecha_nacimiento
-    = f.datetime_select :fecha_nacimiento
+    = f.text_field :fecha_nacimiento, class: "form-control form-date", "data-provide" => "datepicker", "data-date-format" => "dd/mm/yyyy", "data-date-autoclose" => "true", "data-date-language" => "es"
   .field
     = f.label :telefono
     = f.text_field :telefono
