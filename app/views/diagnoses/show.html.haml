@@ -1,3 +1,8 @@
+%ol.breadcrumb
+  %li.breadcrumb-item= link_to "Inicio", root_path
+  %li.breadcrumb-item= link_to @patient.show_nombre, patient_path(@patient)
+  %li.breadcrumb-item= link_to "diagnósticos", patient_diagnoses_path(@patient)
+  %li.breadcrumb-item.active= @diagnosis.id
 %p#notice= notice
 .container
 

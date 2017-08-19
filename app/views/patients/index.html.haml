@@ -1,3 +1,5 @@
+%ol.breadcrumb
+  %li.breabcrumb-item.active Inicio
 .row
   .col
     %h1 Listado de Pacientes
@@ -27,15 +29,15 @@
             %td= patient.apellido_materno
             %td= patient.nombre
             %td= patient.rut
-            %td= patient.fecha_nacimiento
+            %td= formateo_de_fecha patient.fecha_nacimiento
             %td= patient.telefono
             %td= patient.celular
             %td= patient.direccion
             %td= patient.ocupacion
             %td= patient.derivado
-            %td= button_to 'Mostrar', patient, method: :get, class: "btn btn-secondary"
-            %td= button_to 'Editar', edit_patient_path(patient), method: :get, class: "btn btn-secondary"
-            %td= button_to 'Eliminar', patient, :method => :delete, :data => { :confirm => '¿Está seguro de eliminar al paciente?' }, class: "btn btn-danger"
+            %td= button_to 'Mostrar', patient, method: :get, class: "btn btn-secondary btn-sm"
+            %td= button_to 'Editar', edit_patient_path(patient), method: :get, class: "btn btn-secondary btn-sm"
+            %td= button_to 'Eliminar', patient, :method => :delete, :data => { :confirm => '¿Está seguro de eliminar al paciente?' }, class: "btn btn-danger btn-sm"
 
 %br
 

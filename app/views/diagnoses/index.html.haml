@@ -1,3 +1,7 @@
+%ol.breadcrumb
+  %li.breadcrumb-item= link_to "Inicio", root_path
+  %li.breadcrumb-item= link_to @patient.show_nombre, patient_path(@patient)
+  %li.breadcrumb-item.active diagnósticos
 %h1 Listing diagnoses
 
 %table
