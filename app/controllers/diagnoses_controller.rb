@@ -15,9 +15,7 @@ class DiagnosesController < ApplicationController
     respond_to do |f|
       f.html
       f.pdf do
-        render pdf: "Diagnostico",
-          template: "diagnoses/show.pdf.haml",
-          locals: { diagnosis: @diagnosis }
+        render pdf: "Diagnostico", encoding: "UTF-8"
       end
     end
   end
