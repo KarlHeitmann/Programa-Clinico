@@ -19,7 +19,7 @@
 
 FactoryGirl.define do
   factory :diagnosis do
-    diagnostico_y_tratamiento "MyText"
-    patient nil
+    diagnostico_y_tratamiento { Faker::Lorem.sentence }
+    patient
   end
 end

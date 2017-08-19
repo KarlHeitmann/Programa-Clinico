@@ -18,5 +18,8 @@
 #
 
 class Diagnosis < ApplicationRecord
+  validates :diagnostico_y_tratamiento, :patient, presence: true
+
   belongs_to :patient
+  has_many :stages
 end
