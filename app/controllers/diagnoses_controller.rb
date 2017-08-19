@@ -12,6 +12,14 @@ class DiagnosesController < ApplicationController
   # GET /diagnoses/1.json
   def show
     @patient = Patient.find params[:patient_id]
+    respond_to do |f|
+      f.html
+      f.pdf do
+        render pdf: "Diagnostico",
+          template: "diagnoses/show.pdf.haml",
+          locals: { diagnosis: @diagnosis }
+      end
+    end
   end
 
   # GET /diagnoses/new

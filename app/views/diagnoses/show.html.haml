@@ -7,6 +7,8 @@
   %b Paciente:
   = @diagnosis.patient.show_nombre
 
+= link_to 'PDF', patient_diagnosis_path(@patient, @diagnosis, format: :pdf)
+\|
 = link_to 'Edit', edit_patient_diagnosis_path(@patient, @diagnosis)
 \|
 = link_to 'Back', patient_diagnoses_path(@patient)
