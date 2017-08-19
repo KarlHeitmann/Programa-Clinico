@@ -1,39 +1,42 @@
-%h1 Listing patients
+.row
+  .col
+    %h1 Listado de Pacientes
+.row
+  .col
+    %table.table.table-striped
+      %thead.thead-default
+        %tr
+          %th Apellido paterno
+          %th Apellido materno
+          %th Nombre
+          %th Rut
+          %th Fecha nacimiento
+          %th Telefono
+          %th Celular
+          %th Direccion
+          %th Ocupacion
+          %th Derivado
+          %th
+          %th
+          %th
 
-%table
-  %thead
-    %tr
-      %th Apellido paterno
-      %th Apellido materno
-      %th Nombre
-      %th Rut
-      %th Fecha nacimiento
-      %th Telefono
-      %th Celular
-      %th Direccion
-      %th Ocupacion
-      %th Derivado
-      %th
-      %th
-      %th
-
-  %tbody
-    - @patients.each do |patient|
-      %tr
-        %td= patient.apellido_paterno
-        %td= patient.apellido_materno
-        %td= patient.nombre
-        %td= patient.rut
-        %td= patient.fecha_nacimiento
-        %td= patient.telefono
-        %td= patient.celular
-        %td= patient.direccion
-        %td= patient.ocupacion
-        %td= patient.derivado
-        %td= link_to 'Show', patient
-        %td= link_to 'Edit', edit_patient_path(patient)
-        %td= link_to 'Destroy', patient, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %tbody
+        - @patients.each do |patient|
+          %tr
+            %td= patient.apellido_paterno
+            %td= patient.apellido_materno
+            %td= patient.nombre
+            %td= patient.rut
+            %td= patient.fecha_nacimiento
+            %td= patient.telefono
+            %td= patient.celular
+            %td= patient.direccion
+            %td= patient.ocupacion
+            %td= patient.derivado
+            %td= button_to 'Mostrar', patient, method: :get, class: "btn btn-secondary"
+            %td= button_to 'Editar', edit_patient_path(patient), method: :get, class: "btn btn-secondary"
+            %td= button_to 'Eliminar', patient, :method => :delete, :data => { :confirm => '¿Está seguro de eliminar al paciente?' }, class: "btn btn-danger"
 
 %br
 
-= link_to 'New Patient', new_patient_path
+= button_to 'Nuevo paciente', new_patient_path, method: :get, class: "btn btn-primary"
