@@ -1,0 +1,7 @@
+%p
+  %b Diagnóstico y tratamiento:
+  = @diagnosis.diagnostico_y_tratamiento.gsub("\n", "<br>").html_safe
+%p
+  %b Paciente:
+  = @diagnosis.patient.show_nombre
+
