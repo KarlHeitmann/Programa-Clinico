@@ -18,5 +18,6 @@
 #
 
 class Stage < ApplicationRecord
+  validates :nombre, :diagnosis, presence: true
   belongs_to :diagnosis
 end

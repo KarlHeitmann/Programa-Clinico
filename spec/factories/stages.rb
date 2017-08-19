@@ -19,7 +19,7 @@
 
 FactoryGirl.define do
   factory :stage do
-    nombre "MyString"
-    diagnosis nil
+    nombre { Faker::Lorem.sentence }
+    diagnosis
   end
 end

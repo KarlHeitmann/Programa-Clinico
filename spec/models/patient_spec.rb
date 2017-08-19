@@ -33,7 +33,7 @@ RSpec.describe Patient, type: :model do
   it { is_expected.to validate_presence_of :direccion }
   it { is_expected.to validate_presence_of :ocupacion }
   it { is_expected.to validate_presence_of :derivado }
-  
+
   describe "Associations" do
     it { is_expected.to have_many :diagnoses }
   end

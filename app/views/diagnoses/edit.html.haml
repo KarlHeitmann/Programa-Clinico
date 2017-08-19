@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @diagnosis
+= link_to 'Show', patient_diagnosis_path(@patient, @diagnosis)
 \|
-= link_to 'Back', diagnoses_path
+= link_to 'Back', patient_diagnoses_path(@patient)

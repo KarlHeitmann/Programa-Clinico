@@ -1,34 +1,41 @@
 class DiagnosesController < ApplicationController
-  before_action :set_diagnosis, only: [:show, :edit, :update, :destroy]
+  before_action :set_diagnosis, only: [:show, :update, :destroy]
 
   # GET /diagnoses
   # GET /diagnoses.json
   def index
-    @diagnoses = Diagnosis.all
+    @patient = Patient.find params[:patient_id]
+    @diagnoses = @patient.diagnoses
   end
 
   # GET /diagnoses/1
   # GET /diagnoses/1.json
   def show
+    @patient = Patient.find params[:patient_id]
   end
 
   # GET /diagnoses/new
   def new
-    @diagnosis = Diagnosis.new
+    @patient = Patient.find params[:patient_id]
+    @diagnosis = @patient.diagnoses.build
   end
 
   # GET /diagnoses/1/edit
   def edit
+    @patient = Patient.find params[:patient_id]
+    @diagnosis = Diagnosis.find params[:id]
   end
 
   # POST /diagnoses
   # POST /diagnoses.json
   def create
+    @patient = Patient.find params[:patient_id]
     @diagnosis = Diagnosis.new(diagnosis_params)
+    @patient.diagnoses << @diagnosis
 
     respond_to do |format|
-      if @diagnosis.save
-        format.html { redirect_to @diagnosis, notice: 'Diagnosis was successfully created.' }
+      if @patient.save
+        format.html { redirect_to patient_diagnosis_path(@patient, @diagnosis), notice: 'Diagnosis was successfully created.' }
         format.json { render :show, status: :created, location: @diagnosis }
       else
         format.html { render :new }
@@ -40,9 +47,10 @@ class DiagnosesController < ApplicationController
   # PATCH/PUT /diagnoses/1
   # PATCH/PUT /diagnoses/1.json
   def update
+    @patient = Patient.find params[:patient_id]
     respond_to do |format|
       if @diagnosis.update(diagnosis_params)
-        format.html { redirect_to @diagnosis, notice: 'Diagnosis was successfully updated.' }
+        format.html { redirect_to patient_diagnosis_path(@patient, @diagnosis), notice: 'Diagnosis was successfully updated.' }
         format.json { render :show, status: :ok, location: @diagnosis }
       else
         format.html { render :edit }
@@ -54,9 +62,10 @@ class DiagnosesController < ApplicationController
   # DELETE /diagnoses/1
   # DELETE /diagnoses/1.json
   def destroy
+    @patient = Patient.find params[:patient_id]
     @diagnosis.destroy
     respond_to do |format|
-      format.html { redirect_to diagnoses_url, notice: 'Diagnosis was successfully destroyed.' }
+      format.html { redirect_to patient_diagnoses_path(@patient), notice: 'Diagnosis was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

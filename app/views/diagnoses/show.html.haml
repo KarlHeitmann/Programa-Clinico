@@ -7,6 +7,6 @@
   %b Patient:
   = @diagnosis.patient
 
-= link_to 'Edit', edit_diagnosis_path(@diagnosis)
+= link_to 'Edit', edit_patient_diagnosis_path(@patient, @diagnosis)
 \|
-= link_to 'Back', diagnoses_path
+= link_to 'Back', patient_diagnoses_path(@patient)
