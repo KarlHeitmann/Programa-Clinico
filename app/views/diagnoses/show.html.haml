@@ -1,24 +1,34 @@
-%ol.breadcrumb
-  %li.breadcrumb-item= link_to "Inicio", root_path
-  %li.breadcrumb-item= link_to @patient.show_nombre, patient_path(@patient)
-  %li.breadcrumb-item= link_to "diagnósticos", patient_diagnoses_path(@patient)
-  %li.breadcrumb-item.active= @diagnosis.id
-%p#notice= notice
 .container
+  %ol.breadcrumb
+    %li.breadcrumb-item= link_to "Inicio", root_path
+    %li.breadcrumb-item= link_to @patient.show_nombre, patient_path(@patient)
+    %li.breadcrumb-item= link_to "diagnósticos", patient_diagnoses_path(@patient)
+    %li.breadcrumb-item.active= @diagnosis.id
+  %p#notice= notice
 
-%p
-  %b Nombre:
-  = @diagnosis.patient.show_nombre
-
-%p
-  %b Diagnóstico y tratamiento:
-  = @diagnosis.diagnostico_y_tratamiento
-%p
-  %b Paciente:
-  = @diagnosis.patient.show_nombre
-
-= link_to 'PDF', patient_diagnosis_path(@patient, @diagnosis, format: :pdf)
-\|
-= link_to 'Edit', edit_patient_diagnosis_path(@patient, @diagnosis)
-\|
-= link_to 'Back', patient_diagnoses_path(@patient)
+  .row
+    .col
+      %p
+        %strong Nombre: 
+        =@diagnosis.patient.show_nombre
+  .row
+    .col
+      %p
+        %strong Ocupación: 
+        =@diagnosis.patient.ocupacion
+    .col-3
+      %p
+        %strong Edad: 
+        = age @diagnosis.patient.fecha_nacimiento
+  %hr
+  .row
+    .col
+      %p
+        %b Diagnóstico y tratamiento:
+        %br
+        = @diagnosis.diagnostico_y_tratamiento
+  .row
+    .col
+      = button_to 'PDF', patient_diagnosis_path(@patient, @diagnosis, format: :pdf), method: :get, class: "btn btn-primary btn-sm"
+    .col
+      = button_to 'Editar', edit_patient_diagnosis_path(@patient, @diagnosis), method: :get, class: "btn btn-success btn-sm"

@@ -26,4 +26,6 @@
               %td= button_to 'Ver', patient_diagnosis_path(diagnosis.patient, diagnosis), method: :get, class:      "btn btn-outline-secondary btn-sm"
               %td= button_to 'Editar', edit_patient_diagnosis_path(diagnosis.patient, diagnosis), method: :get, class: "btn btn-outline-secondary btn-sm"
               %td= button_to 'Eliminar', patient_diagnosis_path(diagnosis.patient, diagnosis), :method => :delete, :data => { :confirm => '¿Está seguro de eliminar al paciente?' }, class: "btn btn-outline-danger btn-sm"
-
+  .row
+    .col
+      = button_to 'Nuevo diagnóstico', new_patient_diagnosis_path(@patient), method: :get, class: "btn btn-outline-primary btn-sm"

@@ -6,9 +6,13 @@
         - @diagnosis.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :diagnostico_y_tratamiento
-    = f.text_area :diagnostico_y_tratamiento
+  .row
+    .col
+      %fieldset.form-group
+        = f.label :diagnostico_y_tratamiento
+        = f.text_area :diagnostico_y_tratamiento, class: "form-control texto-largo"
   = f.hidden_field :patient#, :value: @patient.id
-  .actions
-    = f.submit 'Save'
+  .row
+    .col
+      %fieldset.form-group
+      = f.submit 'Save', class: "btn btn-outline-primary"

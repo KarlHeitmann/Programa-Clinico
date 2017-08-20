@@ -9,8 +9,6 @@
         = @patient.show_nombre
   .row
     .col
-      %h1 
-
       %p#notice= notice
 
       %p
@@ -47,8 +45,6 @@
   .row
     .col
       = button_to 'Ver diagnósticos', patient_diagnoses_path(@patient), method: :get, class:      "btn btn-outline-primary btn-sm"
-    .col
-      = button_to 'Nuevo diagnóstico', new_patient_diagnosis_path(@patient), method: :get, class: "btn btn-outline-secondary btn-sm"
     .col
       = button_to 'Editar', edit_patient_path(@patient), method: :get, class: "btn btn-outline-success btn-sm"
 
