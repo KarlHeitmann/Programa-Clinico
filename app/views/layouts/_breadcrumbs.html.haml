@@ -1,0 +1,5 @@
+%ol.breadcrumb
+  - llaves_camino.each do |k|
+    %li.breadcrumb-item= link_to camino[k][:caption], camino[k][:ruta]
+  %li.breadcrumb-item.active= actual
+
