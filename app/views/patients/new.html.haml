@@ -1,8 +1,9 @@
-%ol.breadcrumb
-  %li.breadcrumb-item= link_to "Inicio", root_path
-  %li.breadcrumb-item.active Nuevo paciente
-%h1 New patient
+.container
+  %ol.breadcrumb
+    %li.breadcrumb-item= link_to "Inicio", root_path
+    %li.breadcrumb-item.active Nuevo paciente
+  .row
+    .col
+      %h1 Nuevo paciente
 
-= render 'form'
-
-= link_to 'Back', patients_path
+      = render 'form'
