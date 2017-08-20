@@ -4,15 +4,6 @@
 .container
   .row
     .col
-      = link_to 'Diagnósticos', patient_diagnoses_path(@patient)
-      \|
-      = link_to 'New Diagnosis', new_patient_diagnosis_path(@patient)
-      \|
-      = link_to 'Edit', edit_patient_path(@patient)
-      \|
-      = link_to 'Back', patients_path
-  .row
-    .col
       %h1
         Detalle de Paciente
         = @patient.show_nombre
@@ -53,3 +44,11 @@
       %p
         %b Derivado:
         = @patient.derivado
+  .row
+    .col
+      = button_to 'Ver diagnósticos', patient_diagnoses_path(@patient), method: :get, class:      "btn btn-outline-primary btn-sm"
+    .col
+      = button_to 'Nuevo diagnóstico', new_patient_diagnosis_path(@patient), method: :get, class: "btn btn-outline-secondary btn-sm"
+    .col
+      = button_to 'Editar', edit_patient_path(@patient), method: :get, class: "btn btn-outline-success btn-sm"
+
