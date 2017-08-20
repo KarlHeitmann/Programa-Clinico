@@ -8,7 +8,5 @@ Python.
 A continuación tienes un [enlace a la aplicación en Heroku](https://sheltered-tundra-33421.herokuapp.com/),
 en donde puedes experimentar y ver de qué se trata.
 
-[Enlace a Amazon](https://www.amazon.com/Algoritmos-Evolutivos-Enfoque-Practico-Spanish/dp/6077686298)
-
 
 
