@@ -6,35 +6,40 @@
         - @patient.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :apellido_paterno
-    = f.text_field :apellido_paterno
-  .field
-    = f.label :apellido_materno
-    = f.text_field :apellido_materno
-  .field
-    = f.label :nombre
-    = f.text_field :nombre
-  .field
-    = f.label :rut
-    = f.text_field :rut
-  .field
-    = f.label :fecha_nacimiento
-    = f.text_field :fecha_nacimiento, class: "form-control form-date", "data-provide" => "datepicker", "data-date-format" => "dd/mm/yyyy", "data-date-autoclose" => "true", "data-date-language" => "es"
-  .field
-    = f.label :telefono
-    = f.text_field :telefono
-  .field
-    = f.label :celular
-    = f.text_field :celular
-  .field
-    = f.label :direccion
-    = f.text_field :direccion
-  .field
-    = f.label :ocupacion
-    = f.text_field :ocupacion
-  .field
-    = f.label :derivado
-    = f.text_field :derivado
-  .actions
-    = f.submit 'Save'
+  .row
+    .col
+      %fieldset.form-group
+        = f.label :apellido_paterno
+        = f.text_field :apellido_paterno, class: "form-control"
+      %fieldset.form-group
+        = f.label :apellido_materno
+        = f.text_field :apellido_materno, class: "form-control"
+      %fieldset.form-group
+        = f.label :nombre
+        = f.text_field :nombre, class: "form-control"
+      %fieldset.form-group
+        = f.label :rut
+        = f.text_field :rut, class: "form-control"
+      %fieldset.form-group
+        = f.label :fecha_nacimiento
+        = f.text_field :fecha_nacimiento, class: "form-control form-date", "data-provide" => "datepicker", "data-date-format" => "dd/mm/yyyy", "data-date-autoclose" => "true", "data-date-language" => "es"
+    .col
+      %fieldset.form-group
+        = f.label :telefono
+        = f.text_field :telefono, class: "form-control"
+      %fieldset.form-group
+        = f.label :celular
+        = f.text_field :celular, class: "form-control"
+      %fieldset.form-group
+        = f.label :direccion
+        = f.text_field :direccion, class: "form-control"
+      %fieldset.form-group
+        = f.label :ocupacion
+        = f.text_field :ocupacion, class: "form-control"
+      %fieldset.form-group
+        = f.label :derivado
+        = f.text_field :derivado, class: "form-control"
+  .row
+    .col
+      %fieldset.form-group
+        = f.submit 'Save', class: "btn btn-outline-primary"

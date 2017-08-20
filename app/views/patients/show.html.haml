@@ -1,39 +1,48 @@
-%p#notice= notice
+.container
+  = render partial: "layouts/breadcrumbs", locals: {llaves_camino: [1], camino: {1 => {caption: "Inicio", ruta: root_path}}, actual: @patient.show_nombre }
+  .row
+    .col
+      %h1
+        Detalle de Paciente
+        = @patient.show_nombre
+  .row
+    .col
+      %p#notice= notice
 
-%p
-  %b Apellido paterno:
-  = @patient.apellido_paterno
-%p
-  %b Apellido materno:
-  = @patient.apellido_materno
-%p
-  %b Nombre:
-  = @patient.nombre
-%p
-  %b Rut:
-  = @patient.rut
-%p
-  %b Fecha nacimiento:
-  = @patient.fecha_nacimiento
-%p
-  %b Telefono:
-  = @patient.telefono
-%p
-  %b Celular:
-  = @patient.celular
-%p
-  %b Direccion:
-  = @patient.direccion
-%p
-  %b Ocupacion:
-  = @patient.ocupacion
-%p
-  %b Derivado:
-  = @patient.derivado
-= link_to 'Diagnósticos', patient_diagnoses_path(@patient)
-\|
-= link_to 'New Diagnosis', new_patient_diagnosis_path(@patient)
-\|
-= link_to 'Edit', edit_patient_path(@patient)
-\|
-= link_to 'Back', patients_path
+      %p
+        %b Apellido paterno:
+        = @patient.apellido_paterno
+      %p
+        %b Apellido materno:
+        = @patient.apellido_materno
+      %p
+        %b Nombre:
+        = @patient.nombre
+      %p
+        %b Rut:
+        = @patient.rut
+      %p
+        %b Fecha nacimiento:
+        = @patient.fecha_nacimiento
+    .col
+      %p
+        %b Telefono:
+        = @patient.telefono
+      %p
+        %b Celular:
+        = @patient.celular
+      %p
+        %b Direccion:
+        = @patient.direccion
+      %p
+        %b Ocupacion:
+        = @patient.ocupacion
+      %p
+        %b Derivado:
+        = @patient.derivado
+  .row
+    .col
+      = button_to 'Ver diagnósticos', patient_diagnoses_path(@patient), method: :get, class:      "btn btn-outline-primary btn-sm"
+    .col
+      = button_to 'Editar', edit_patient_path(@patient), method: :get, class: "btn btn-outline-success btn-sm"
+

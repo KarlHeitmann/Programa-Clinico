@@ -55,6 +55,7 @@ gem 'active_type'
 gem 'annotate'
 gem 'simple_form'
 gem 'haml-rails'
+gem 'bootstrap'
 gem 'bootstrap-datepicker-rails'
 group :development, :test do
   gem 'rspec-rails'

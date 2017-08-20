@@ -1,5 +1,11 @@
-%h1 New diagnosis
+.container
+  = render partial: "layouts/breadcrumbs", locals: {llaves_camino: [1,2,3], camino: {1 => {caption: "Inicio", ruta: root_path}, 2 => {caption: @patient.show_nombre, ruta: patient_path(@patient)}, 3 => {caption: "diagnósticos", ruta: patient_diagnoses_path(@patient)}}, actual: "nuevo diagnóstico" }
 
-= render 'form'
+  .row
+    .col
+      %h1 
 
-= link_to 'Back', patient_diagnoses_path(@patient)
+  .row
+    .col
+      = render 'form'
+

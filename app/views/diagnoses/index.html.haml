@@ -1,25 +1,28 @@
-%h1 Listing diagnoses
+.container
+  = render partial: "layouts/breadcrumbs", locals: {llaves_camino: [1,2], camino: {1 => {caption: "Inicio", ruta: root_path}, 2 => {caption: @patient.show_nombre, ruta: patient_path(@patient)}}, actual: "diagnósticos" }
+  .row
+    .col
+      %h1
+        Diagnósticos
+        = @patient.show_nombre
 
-%table
-  %thead
-    %tr
-      %th Diagnostico y tratamiento
-      %th Patient
-      %th
-      %th
-      %th
+  .row
+    .col
+      %table.table.table-striped
+        %thead.thead-default
+          %tr
+            %th Diagnostico y tratamiento
+            %th
+            %th
+            %th
 
-  %tbody
-    - @diagnoses.each do |diagnosis|
-      %tr
-        %td= diagnosis.diagnostico_y_tratamiento
-        %td= diagnosis.patient.nombre
-        %td= link_to 'Show', patient_diagnosis_path(diagnosis.patient, diagnosis)
-        %td= link_to 'Edit', edit_patient_diagnosis_path(diagnosis.patient, diagnosis)
-        %td= link_to 'Destroy', patient_diagnosis_path(diagnosis.patient, diagnosis), :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to "Pacientes", patients_path
-\|
-= link_to 'New Diagnosis', new_patient_diagnosis_path(@patient)
+        %tbody
+          - @diagnoses.each do |diagnosis|
+            %tr
+              %td= cortar_descripcion diagnosis.diagnostico_y_tratamiento
+              %td= button_to 'Ver', patient_diagnosis_path(diagnosis.patient, diagnosis), method: :get, class:      "btn btn-outline-secondary btn-sm"
+              %td= button_to 'Editar', edit_patient_diagnosis_path(diagnosis.patient, diagnosis), method: :get, class: "btn btn-outline-secondary btn-sm"
+              %td= button_to 'Eliminar', patient_diagnosis_path(diagnosis.patient, diagnosis), :method => :delete, :data => { :confirm => '¿Está seguro de eliminar al paciente?' }, class: "btn btn-outline-danger btn-sm"
+  .row
+    .col
+      = button_to 'Nuevo diagnóstico', new_patient_diagnosis_path(@patient), method: :get, class: "btn btn-outline-primary btn-sm"

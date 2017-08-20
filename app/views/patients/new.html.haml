@@ -1,5 +1,7 @@
-%h1 New patient
+.container
+  = render partial: "layouts/breadcrumbs", locals: {llaves_camino: [1], camino: {1 => {caption: "Inicio", ruta: root_path}}, actual: "nuevo paciente" }
+  .row
+    .col
+      %h1 Nuevo paciente
 
-= render 'form'
-
-= link_to 'Back', patients_path
+      = render 'form'

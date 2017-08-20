@@ -1,14 +1,31 @@
-%p#notice= notice
+.container
+  = render partial: "layouts/breadcrumbs", locals: {llaves_camino: [1,2,3], camino: {1 => {caption: "Inicio", ruta: root_path}, 2 => {caption: @patient.show_nombre, ruta: patient_path(@patient)}, 3 => {caption: "diagnósticos", ruta: patient_diagnoses_path(@patient)}}, actual: @diagnosis.id }
 
-%p
-  %b Diagnóstico y tratamiento:
-  = @diagnosis.diagnostico_y_tratamiento
-%p
-  %b Paciente:
-  = @diagnosis.patient.show_nombre
+  %p#notice= notice
 
-= link_to 'PDF', patient_diagnosis_path(@patient, @diagnosis, format: :pdf)
-\|
-= link_to 'Edit', edit_patient_diagnosis_path(@patient, @diagnosis)
-\|
-= link_to 'Back', patient_diagnoses_path(@patient)
+  .row
+    .col
+      %p
+        %strong Nombre: 
+        =@diagnosis.patient.show_nombre
+  .row
+    .col
+      %p
+        %strong Ocupación: 
+        =@diagnosis.patient.ocupacion
+    .col-3
+      %p
+        %strong Edad: 
+        = age @diagnosis.patient.fecha_nacimiento
+  %hr
+  .row
+    .col
+      %p
+        %b Diagnóstico y tratamiento:
+        %br
+        = @diagnosis.diagnostico_y_tratamiento
+  .row
+    .col
+      = button_to 'PDF', patient_diagnosis_path(@patient, @diagnosis, format: :pdf), method: :get, class: "btn btn-primary btn-sm"
+    .col
+      = button_to 'Editar', edit_patient_diagnosis_path(@patient, @diagnosis), method: :get, class: "btn btn-success btn-sm"
