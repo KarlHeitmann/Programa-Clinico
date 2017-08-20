@@ -1,7 +1,5 @@
-%ol.breadcrumb
-  %li.breadcrumb-item= link_to "Inicio", root_path
-  %li.breadcrumb-item.active= @patient.show_nombre
 .container
+  = render partial: "layouts/breadcrumbs", locals: {llaves_camino: [1], camino: {1 => {caption: "Inicio", ruta: root_path}}, actual: @patient.show_nombre }
   .row
     .col
       %h1

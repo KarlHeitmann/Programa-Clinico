@@ -1,5 +1,4 @@
-%ol.breadcrumb
-  %li.breabcrumb-item.active Inicio
+= render partial: "layouts/breadcrumbs", locals: {llaves_camino: [], camino: {}, actual: "Inicio" }
 .row
   .col
     %h1 Listado de Pacientes
