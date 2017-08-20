@@ -2,3 +2,5 @@ language: ruby
 services:
   - postgresql
 
+before_script:
+  - psql -c 'create database programa-clinico_test;' -U postgres
